@@ -1,0 +1,58 @@
+GQEMU README
+
+What is it?
+GQEMU is a lightweight Bash script that provides a Zenity GUI for QEMU. It’s designed to help you launch Virtual Machines quickly by selecting options through a menu instead of typing long, complex commands in the terminal.
+
+Features
+
+    ISO Selection: A simple file browser to pick your operating system image.
+
+    VGA Profiles: Pick the right video driver for your setup:
+
+        Virtio: Best performance for modern Linux.
+
+        Std: Standard VGA, the most compatible for any OS.
+
+        VirtualBox: Optimized compatibility settings for specific guest OS needs.
+
+    RAM Management: Select exactly how much memory (1GB, 2GB, 4GB, etc.) to give the VM.
+
+    Script-Based: It’s a transparent .sh file, so you can see exactly how the QEMU command is being built.
+
+How to Install Zenity and QEMU
+Before running the script, make sure you have the necessary tools installed for your Linux distribution:
+
+Ubuntu, Debian, or Mint:
+sudo apt update && sudo apt install qemu-system-x86 zenity -y
+
+Fedora:
+sudo dnf install qemu-system-x86 zenity
+
+Arch Linux:
+sudo pacman -S qemu-desktop zenity
+
+How to use GQEMU
+
+    Download the gqemu.sh file.
+
+    Open your terminal in the folder where the file is.
+
+    Make it executable: chmod +x gqemu.sh
+
+    Run it: ./gqemu.sh
+
+How it works
+
+    The script uses Zenity to ask you for the location of your ISO file.
+
+    You choose the VGA type (Virtio, Std, or VirtualBox) from a list.
+
+    You select the amount of RAM for the Virtual Machine.
+
+    The script combines these into a single command and starts QEMU for you.
+
+Pro Hack
+To make GQEMU a permanent tool on your system, move it to your local bin:
+sudo cp gqemu.sh /usr/local/bin/gqemu && sudo chmod +x /usr/local/bin/gqemu
+
+Created by giorgich11
